@@ -116,6 +116,9 @@ export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+#
+
+export EDITOR='nvim'
 alias n="nvim"
 alias lg="lazygit"
 alias tmuxconfig="nvim ~/.tmux.conf"
