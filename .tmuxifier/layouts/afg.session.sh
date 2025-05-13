@@ -5,8 +5,8 @@ session_root "~/Projects/afg-consulting/"
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
 if initialize_session "afg"; then
-  new_window "Server"
-  new_window "editor"
+  new_window 
+  new_window 
   select_window 0
   run_cmd "php artisan serve"
   split_h 50

@@ -7,9 +7,10 @@ session_root "~/Projects/Engeem/kafka-ui-engeem/"
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
 if initialize_session "yiali"; then
-  new_window "Server"
-  new_window "Backend"
-  new_window "Frontend"
+  tmux set-option -t "$session_name" allow-rename off
+  new_window 
+  new_window
+  new_window
   select_window 0
   run_cmd "cd frontend && nvm use && pnpm dev"
   split_h 50

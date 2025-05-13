@@ -6,8 +6,8 @@ session_root "~/Projects/unitpay/"
 # argument is given, session name will be based on layout file name.
 if initialize_session "unitpay"; then
   new_window
-  new_window "Frontend"
-  new_window "Backend"
+  new_window 
+  new_window 
   select_window 0
   run_cmd "cd frontend && npm run start"
   split_h 50

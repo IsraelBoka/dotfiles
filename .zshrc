@@ -82,14 +82,15 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
-
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -117,11 +118,19 @@ export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 #
 # Example aliases
 #
-
-export EDITOR='nvim'
+#
 alias n="nvim"
 alias lg="lazygit"
 alias tmuxconfig="nvim ~/.tmux.conf"
 alias zshconfig="nvim ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 alias sourcetmux="tmux source ~/.tmux.conf"
+alias nconfig="nvim ~/.config/nvim/"
+
+# Start tmux if not already inside a tmux session
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    sesh connect Home 🏡
+fi
+
+export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
+

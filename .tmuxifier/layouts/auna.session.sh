@@ -6,9 +6,9 @@ session_root "~/Projects/auna"
 # argument is given, session name will be based on layout file name.
 if initialize_session "auna"; then
 
-  new_window "server"
-  new_window "frontend editor"
-  new_window "backend editor"
+  new_window 
+  new_window 
+  new_window
   select_window 0
   run_cmd "ng serve"
   split_h
