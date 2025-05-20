@@ -1,5 +1,4 @@
 # open a file
-
 [[session]]
 name = "Home 🏡"
 path = "~"
@@ -12,7 +11,7 @@ startup_command = "nvim .tmux.conf"
 
 [[session]]
 name = "sesh conf"
-path = "~/dotfiles/sesh.toml"
+path = "~/dotfiles/"
 startup_command = "nvim sesh.toml"
 
 
@@ -20,4 +19,14 @@ startup_command = "nvim sesh.toml"
 name = "yiali-sesh"
 path = "~"
 startup_command = "tmuxifier load-session yiali && tmux kill-session -t yiali-sesh"
+
+[[session]]
+name = "afg-sesh"
+path = "~"
+startup_command = "tmuxifier load-session afg && tmux kill-session -t afg-sesh"
+
+[[session]]
+name = "gitgo-sesh"
+path = "~"
+startup_command = "tmuxifier load-session gitgo && tmux kill-session -t gitgo-sesh"
 

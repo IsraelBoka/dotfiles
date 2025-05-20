@@ -126,6 +126,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 alias sourcetmux="tmux source ~/.tmux.conf"
 alias nconfig="nvim ~/.config/nvim/"
+alias please="gum input --password | sudo -nS"
 
 # Start tmux if not already inside a tmux session
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
@@ -133,4 +134,24 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
+export CONFIG_DIR="~/.config"
 
+function gum-history-search() {
+  local selection
+
+  selection=$(
+    tail -r "$HISTFILE" |
+    sed -E '/^: [0-9]+:0;/!d; s/^: [0-9]+:0;//' |  # Remove zsh timestamps
+    awk '!seen[$0]++' |
+    gum filter --height 20
+  )
+
+  if [[ -n $selection ]]; then
+    BUFFER=$selection
+    CURSOR=${#BUFFER}
+    zle reset-prompt
+  fi
+}
+
+zle -N gum-history-search
+bindkey '^R' gum-history-search
