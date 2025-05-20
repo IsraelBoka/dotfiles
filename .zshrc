@@ -134,14 +134,13 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
-export CONFIG_DIR="~/.config"
 
 function gum-history-search() {
   local selection
 
   selection=$(
     tail -r "$HISTFILE" |
-    sed -E '/^: [0-9]+:0;/!d; s/^: [0-9]+:0;//' |  # Remove zsh timestamps
+    sed -E '/^: [0-9]+:0;/!d; s/^: [0-9]+:0;//' |
     awk '!seen[$0]++' |
     gum filter --height 20
   )
