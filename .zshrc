@@ -1,8 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR=nvim
+export TERM="tmux-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -85,6 +88,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH" 
+
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
@@ -130,11 +135,11 @@ alias please="gum input --password | sudo -nS"
 
 # Start tmux if not already inside a tmux session
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    sesh connect Home 🏡
+    sesh connect Home
 fi
 
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
-
+export LC_ALL=C
 function gum-history-search() {
   local selection
 
@@ -154,3 +159,22 @@ function gum-history-search() {
 
 zle -N gum-history-search
 bindkey '^R' gum-history-search
+
+# Created by `pipx` on 2025-06-09 13:07:43
+export PATH="$PATH:/Users/izrael/.local/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/izrael/.lmstudio/bin"
+# End of LM Studio CLI section
+#
+#
+export LIBRARY_PATH="/opt/homebrew/lib"
+export CPATH="/opt/homebrew/include"
+export PATH=$PATH:$(go env GOPATH)/bin
+export LANG=en_US.UTF-8
+export LC_ALL=""
+export LC_CTYPE="en_US.UTF-8"
